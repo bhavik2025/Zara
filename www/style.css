@@ -1,0 +1,774 @@
+body {
+  background-color: black;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.square {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.square span:nth-child(1) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(#6b72ff00 50%, #000dff3d 40%);
+  box-shadow: 0 0 50px rgb(25, 0, 255), inset 0 0 50px rgb(25, 0, 255);
+  border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+  transition: .5s;
+  animation: animate1 6s linear infinite;
+}
+
+.square span:nth-child(2) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(#6b72ff00 50%, #000dff3d 40%);
+  box-shadow: 0 0 50px rgb(25, 0, 255), inset 0 0 50px rgb(25, 0, 255);
+  border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+  transition: .5s;
+  animation: animate2 4s linear infinite;
+}
+
+.square span:nth-child(3) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(#6b72ff00 50%, #000dff3d 40%);
+  box-shadow: 0 0 50px rgb(25, 0, 255), inset 0 0 50px rgb(25, 0, 255);
+  border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+  transition: .5s;
+  animation: animate3 8s linear infinite;
+}
+
+@keyframes animate1 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animate2 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animate3 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Input Filed Start*/
+
+#TextInput {
+  background-color: #181818a8;
+  border-color: blue;
+  box-shadow: 0 0 20px rgb(25, 0, 255),
+    inset 0 0 0px rgb(25, 0, 255);
+  border-radius: 8px;
+  color: white;
+  padding: 3px 0px 3px 20px;
+  margin: 0px 20%;
+}
+
+.input-field {
+  background-color: transparent;
+  border: none;
+  width: 95%;
+  outline: none;
+  color: white;
+  font-family: cursive;
+}
+
+
+.glow-on-hover {
+  width: 35px;
+  height: 35px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  padding: 0px;
+  margin-left: 10px;
+}
+
+.glow-on-hover:before {
+  content: '';
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+}
+
+.glow-on-hover:active {
+  color: #181818a8
+}
+
+.glow-on-hover:active:after {
+  background: transparent;
+}
+
+.glow-on-hover:hover:before {
+  opacity: 1;
+}
+
+.glow-on-hover:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 400% 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
+}
+
+/* Input Filed End*/
+
+
+/* Chat Box Start */
+
+.chat-canvas {
+  background-color: #191919
+}
+
+.header {
+  background-color: #808080;
+}
+
+.chat-close {
+  transition: .2s;
+}
+
+.chat-close:hover {
+  background-color: #fff;
+}
+
+.receiver_message {
+  padding: 8px;
+  border: 2px solid cyan;
+  border-radius: 0px 15px 15px 20px;
+  width: auto;
+  color: white;
+  background-color: #0dcaf014;
+}
+
+.sender_message {
+  padding: 8px;
+  border: 1px solid #0045ff;
+  border-radius: 15px 15px 0px 20px;
+  width: auto;
+  color: white;
+  background-color: #0045ff;
+}
+
+.width-size {
+  max-width: 80%;
+  width: auto;
+}
+
+/* Chat Box End*/
+
+/* face animation css start */
+
+.svg-frame {
+  position: relative;
+  width: 455px;
+  height: 455px;
+  transform-style: preserve-3d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: change-view 2s ease-in infinite;
+}
+
+@keyframes change-view {
+
+  0%,
+  50% {
+    transform: rotate(-0deg) skew(00deg) translateX(calc(0 * var(--i))) translateY(calc(-0px * var(--i)));
+  }
+
+  70%,
+  100% {
+    transform: rotate(-80deg) skew(30deg) translateX(calc(45px * var(--i))) translateY(calc(-35px * var(--i)));
+  }
+}
+
+svg {
+  position: absolute;
+  transition: 0.5s;
+  transform-origin: center;
+  width: 450px;
+  height: 450px;
+  fill: none;
+  animation: change-view 5s ease-in-out infinite alternate;
+  filter: drop-shadow(0 0 12px #00aaff);
+}
+
+#big-centro,
+#outter1,
+#solo-lines,
+#center,
+#outter-center,
+#bottom-dots,
+#center-lines,
+#squares,
+#top-dots {
+  transform-origin: center;
+  animation: rotate 4s ease-in-out infinite alternate;
+}
+
+#big-centro {
+  animation-delay: -1.5s;
+}
+
+#outter1 {
+  animation-delay: -1.2s;
+}
+
+#center {
+  animation-delay: -2.2s;
+}
+
+#bottom-dots,
+#top-dots {
+  animation-duration: 7s;
+}
+
+#center-lines,
+#outter-center {
+  animation-duration: 6s;
+  animation-delay: -3s;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* face animation css end */
+
+/* setting css start*/
+
+.main {
+  color: #fff;
+  background-color: #1118;
+  margin-top: 1%;
+  border-radius: 10px;
+  margin-left: 2.5%;
+  width: 95%;
+  height: 73%;
+  box-shadow: 0px 0px 22px #002bff;
+}
+
+.close_Btn {
+  background-color: #8f0000;
+}
+
+.menuList {
+  height: 39.5px;
+  overflow: hidden;
+}
+
+.menuItem {
+  background-color: transparent;
+  color: #000fdd;
+  border: none;
+  padding: 8px;
+  margin-left: 8px;
+  border-radius: 5px;
+  transition: .5s;
+  box-shadow: 0px 0px 2px #002bff;
+}
+
+.menuItem:hover {
+  background-color: #000fdd;
+  color: #fff;
+}
+
+.commandList {
+  margin-top: 2%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 8%;
+  
+}
+
+.commandItem{
+  background-color: transparent;
+  color: #000fdd;
+  border: none;
+  transition: .5s;
+}
+
+.commandItem:hover{
+  color: #fff;
+}
+
+.commandTitle{
+  color: #fff5;
+}
+
+.mainDiv{
+  margin-top: 2%;
+}
+
+.inputData{
+  border: 1px solid #fff3;
+  background-color: #fff1;
+  color: #fff;
+  border-radius: 5px;
+  padding: 2px;
+  padding-left: 8px;
+  padding-bottom: 4px;
+  margin-right: 5px;
+}
+
+.Add_Btn{
+  color: #000;
+  background-color: #0f0;
+  border: none;
+  padding: 4px 8px 4px 8px;
+  border-radius: 2px;
+  box-shadow: 0 0 10px #0f0;
+  transition: .5s;
+} 
+
+.Add_Btn:hover{
+  box-shadow: 0 0 10px #0f0;
+  color: #fff;
+  background-color: transparent;
+}
+
+.myTable{
+  margin-top: 5%;
+  color: #fff;
+}
+
+.C-MTable{
+  margin-top: 2%;
+  color: #fff;
+}
+
+.dlt_Btn{
+  background-color: #f00;
+  border: none;
+  color: #fff;
+  padding: 4px 8px 4px 8px;
+  border-radius: 5px;
+  transition: .5s;
+}
+
+.dlt_Btn:hover{
+  box-shadow: 0 0 10px #f00;
+  color: #fff;
+  background-color: transparent;
+}
+
+.fullSection{
+  padding: 2%;
+}
+
+/* personal setting's css start  */
+
+#personalDetail{
+  display: flex;
+}
+
+.Pmain{
+  height: 30vw;
+  margin: 2vw 0 0 1vw;
+  width: 40vw;
+  padding: 2%;
+  text-align: center;
+}
+
+.heading{
+  font-family: 'Times New Roman', Times, serif;
+  margin-bottom: 2%;
+}
+
+.PTable{
+  width: 100%;
+}
+
+.PTable tr td{
+  width: 10px;
+}
+
+.PTable th{
+  text-align: center;
+}
+
+.edt_Btn{
+  background-color: rgb(27, 27, 255);
+  border: none;
+  color: #fff;
+  padding: 4px 8px 4px 8px;
+  border-radius: 5px;
+  transition: .5s;
+  margin: 0 2vw 0 0;
+}
+
+.edt_Btn:hover{
+  box-shadow: 0 0 10px rgb(0, 0, 255);
+  color: #fff;
+  background-color: transparent;
+}
+
+.editFormDiv{
+  height: 40vw;
+  margin: -3vw 0 0 1vw;
+  width: 40vw;
+  text-align: center;
+  padding: 2%;
+}
+
+.editFormDiv h3{
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.editForm{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.formSpan{
+  display: flex;
+}
+
+.editForm p{
+  margin: 1.5vw 0 0 0;
+}
+
+.updateData{
+  border: 1px solid #fff3;
+  background-color: #fff1;
+  border-radius: 5px;
+  color: #fff;
+  padding: 2px;
+  height: 30px;
+  width: 25vw;
+}
+
+.Update_Btn{
+  color: #000;
+  background-color: #0f0;
+  border: none;
+  width: 10vw;
+  margin: 3vw 0 0 0;
+  padding: 4px 8px 4px 8px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #0f0;
+  transition: .5s;
+} 
+
+.Update_Btn:hover{
+  box-shadow: 0 0 10px #0f0;
+  color: #fff;
+  background-color: transparent;
+}
+
+/* personal setting's css END  */
+
+/* setting css end */
+
+/* Login Form CSS Start */
+
+.box
+{
+	position: relative;
+	width: 380px;
+	height: 450px;
+	background: #1c1c1c;
+	border-radius: 8px;
+  margin: 10% auto;
+  box-shadow: 0px 0px 22px #002bff;
+}
+
+.box form
+{
+	position: absolute;
+	inset: 4px;
+	background: #222;
+	padding: 50px 40px;
+	border-radius: 8px;
+	z-index: 2;
+	display: flex;
+	flex-direction: column;
+}
+
+.box form h1
+{
+	color: #fff;
+	font-weight: 500;
+	text-align: center;
+	letter-spacing: 0.1em;	
+  text-shadow: 0 0 10px #000fdd;
+}
+
+.box form .inputbox
+{
+	position: relative;
+	width: 300px;
+	margin-top: 35px;
+}
+
+.box form .inputbox input
+{
+	position: relative;
+	width: 100%;
+	padding: 20px 10px 10px;
+	background: transparent;
+	outline: none;
+	border: none;
+	box-shadow: none;
+	color: #23242a;
+	font-size: 1em;
+	letter-spacing: 0,05em;
+	transition: 0.5s;
+	z-index: 10;
+}
+
+.box form .inputbox span
+{
+	position: absolute;
+	left: 0;
+	padding: 20px 10px 10px;
+	pointer-events: none;
+	color: #8f8f8f;
+	font-size: 1em;
+	letter-spacing: 0.05em;
+	transition: 0.5s;
+}
+
+.box form .inputbox input:valid ~ span,
+.box form .inputbox input:focus ~ span
+{
+	color: #fff;
+	font-size: 0.75em;
+	transform: translateY(-34px);
+}
+
+.box form .inputbox i
+{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 2px;
+	background: #fff;
+	border-radius: 4px;
+	overflow: hidden;
+	transition: 0.5s;
+	pointer-events: none;
+}
+
+.box form .inputbox input:valid ~ i,
+.box form .inputbox input:focus ~ i
+{
+	height: 44px;
+}
+
+.loginBtnCSS
+{
+	border: none;
+	outline: none;
+  background: #fff;
+	padding: 9px 25px;
+	cursor: pointer;
+	font-size: 0.9em;
+	border-radius: 4px;
+	font-weight: 600;
+	width: 100px;
+	margin-top: 3em;
+	margin-left: 6em;
+  transition: .5s;
+}
+
+.loginBtnCSS:hover
+{
+	background: #d5d5d5;
+}
+
+.loginBtnCSS:active
+{
+	opacity: 0.6;
+}
+
+/* Login Form CSS End */
+
+/* sign Up Form CSS Start */
+
+.sbox
+{
+	position: relative;
+	width: 380px;
+	height: 575px;
+	background: #1c1c1c;
+	border-radius: 8px;
+  margin: 5% auto;
+  box-shadow: 0px 0px 22px #002bff;
+}
+
+.sbox form
+{
+	position: absolute;
+	inset: 4px;
+	background: #222;
+	padding: 50px 40px;
+	border-radius: 8px;
+	z-index: 2;
+	display: flex;
+	flex-direction: column;
+}
+
+.sbox form h1
+{
+	color: #fff;
+	font-weight: 500;
+	text-align: center;
+	letter-spacing: 0.1em;	
+  text-shadow: 0 0 10px #000fdd;
+}
+
+.sbox form .inputbox
+{
+	position: relative;
+	width: 300px;
+	margin-top: 35px;
+}
+
+.sbox form .inputbox input
+{
+	position: relative;
+	width: 100%;
+	padding: 20px 10px 10px;
+	background: transparent;
+	outline: none;
+	border: none;
+	box-shadow: none;
+	color: #23242a;
+	font-size: 1em;
+	letter-spacing: 0,05em;
+	transition: 0.5s;
+	z-index: 10;
+}
+
+.sbox form .inputbox span
+{
+	position: absolute;
+	left: 0;
+	padding: 20px 10px 10px;
+	pointer-events: none;
+	color: #8f8f8f;
+	font-size: 1em;
+	letter-spacing: 0.05em;
+	transition: 0.5s;
+}
+
+.sbox form .inputbox input:valid ~ span,
+.sbox form .inputbox input:focus ~ span
+{
+	color: #fff;
+	font-size: 0.75em;
+	transform: translateY(-34px);
+}
+
+.sbox form .inputbox i
+{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 2px;
+	background: #fff;
+	border-radius: 4px;
+	overflow: hidden;
+	transition: 0.5s;
+	pointer-events: none;
+}
+
+.sbox form .inputbox input:valid ~ i,
+.sbox form .inputbox input:focus ~ i
+{
+	height: 44px;
+}
+
+.sbox form button[type="button"]
+{
+	border: none;
+	outline: none;
+	padding: 9px 25px;
+	background: #fff;
+	cursor: pointer;
+	font-size: 0.8em;
+	border-radius: 4px;
+	font-weight: 600;
+	width: 100px;
+	margin-top: 3em;
+	margin-left: 6em;
+}
+
+.sbox form button[type="button"]:active
+{
+	opacity: 0.8;
+}
+
+/* Sign Up Form CSS End */

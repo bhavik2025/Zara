@@ -1,5 +1,5 @@
 import os
-import eel
+# import eel
 from engine.features import * 
 from engine.command import * 
 
